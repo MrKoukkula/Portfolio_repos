@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Headers</title>
+    <meta charset="UTF-8" />
+    <link th:href="@{/css/styles.css}" rel="stylesheet">
+</head>
+<body>
+    <div th:fragment="adminheader">
+        <a href="/add" class="btn btn-success">Add Book</a>
+        <a href="/logout" class="btn btn-danger">Logout</a>
+    </div>
+
+    <div th:fragment="userheader">
+        <a href="/logout" class="btn btn-danger">Logout</a>
+    </div>
+</body>
+</html>

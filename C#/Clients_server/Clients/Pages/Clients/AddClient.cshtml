@@ -1,0 +1,27 @@
+﻿@page
+@model AddClientModel
+@{
+    ViewData["Title"] = "AddClient";
+}
+
+<h1>AddClient</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label for="firstName">First name</label>
+        <input type="text" class="form-control" id="firstNameControl" name="firstName" placeholder="">
+        <span class="text-danger" asp-validation-for="client.firstName"></span>
+    </div>
+    <div class="form-group">
+        <label for="lastName">Last name</label>
+        <input type="text" class="form-control" id="lastNameControl" name="lastName" placeholder="">
+        <span class="text-danger" asp-validation-for="client.lastName"></span>
+    </div>
+    <div class="form-group">
+        <label for="age">Age</label>
+        <input type="number" class="form-control" id="ageControl" placeholder="" name="age">
+        <span class="text-danger" asp-validation-for="client.age"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+

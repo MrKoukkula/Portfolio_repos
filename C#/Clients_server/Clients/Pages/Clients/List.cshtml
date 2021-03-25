@@ -1,0 +1,57 @@
+﻿@page
+@model ListModel
+@{
+    ViewData["Title"] = "List";
+}
+
+<h1>List of clients</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Age</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td></td>
+            <td>
+                <form method="get">
+                    <div class="form-group">
+                        <input type="text" name="firstName" value="@Model.firstName" onchange="this.form.submit()" />
+                    </div>
+                </form>
+            </td>
+            <td>
+                <form method="get">
+                    <div class="form-group">
+                        <input type="text" name="lastName" value="@Model.lastName" onchange="this.form.submit()" />
+                    </div>
+                </form>
+            </td>
+        </tr>
+        @foreach (var c in Model.ClientsList)
+        {
+            <tr>
+                <td></td>
+                <td>@c.firstName</td>
+                <td>@c.lastName</td>
+                <td>@c.age</td>
+                <td>
+                    <a class="btn btn-lg btn-outline-primary" asp-page="./EditClient" asp-route-Id="@c.Id">
+                        Edit
+                    </a>
+                </td>
+                <td>
+                    <a asp-page="./DeleteClient" asp-route-id="@c.Id" class="btn btn-outline-danger">
+                        Delete
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

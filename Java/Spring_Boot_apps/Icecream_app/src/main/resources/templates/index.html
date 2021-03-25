@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container-fluid p-0">
+    <div sec:authorize="hasAuthority('ADMIN')" th:insert="fragments/headers :: adminHeader"></div>
+    <div sec:authorize="hasAuthority('USER')" th:insert="fragments/headers :: userHeader"></div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-4" th:each="ic : ${icecreams}">
+            <div class="card mt-1 mb-1">
+                <img class="card-img-top" style="height: 300px;" th:if="${ic.imageUrl == ''}" th:src="@{/images/temp.jpg}">
+                <img class="card-img-top" style="height: 300px;" th:unless="${ic.imageUrl == ''}" th:src="${ic.imageUrl}">
+                <div class="card-body">
+                    <h5 class="card-title" th:text="${ic.name}"></h5>
+                    <p class="card-text" th:text="${ic.price}+ ' € per litre'"></p>
+                    <div class="row">
+                        <div class="col">
+                            <a sec:authorize="hasAuthority('ADMIN')" class="btn btn-secondary" th:href="@{/edit/{id}(id=${ic.id})}">Edit</a>
+                        </div>
+                        <div class="col">
+                            <a sec:authorize="hasAuthority('ADMIN')" class="btn btn-danger" th:href="@{/delete/{id}(id=${ic.id})}">Delete</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</body>
+</html>

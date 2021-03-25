@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+        <nav class="m-0 navbar navbar-dark bg-dark" th:fragment="userHeader">
+            <div class="row justify-content-between w-100 m-0">
+                <div class="col-2">
+                </div>
+                <div class="col-8">
+                    <h2 style="color: white;">Welcome to icecream collection!</h2>
+                </div>
+                <div class="col-2">
+                    <a href="/logout" class="btn btn-light">Logout</a>
+                </div>
+            </div>
+
+        </nav>
+
+
+        <nav class="navbar navbar-dark bg-dark m-0 w-100"  th:fragment="adminHeader">
+            <div class="row justify-content-between w-100 m-0">
+                <div class="col-2">
+                    <h2 style="color: white;">Welcome!</h2>
+                </div>
+                <div class="col-6"></div>
+                <div class="col-2">
+                    <a href="/add" class="btn btn-light">Add Product</a>
+                </div>
+                <div class="col-2">
+                    <a href="/logout" class="btn btn-light">Logout</a>
+                </div>
+            </div>
+        </nav>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+﻿@page
+@model EditClientModel
+@{
+    ViewData["Title"] = "EditClient";
+}
+
+<h1>EditClient</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label for="firstName">First name</label>
+        <input type="text" class="form-control" id="firstNameControl" asp-for="@Model.client.firstName">
+        <span class="text-danger" asp-validation-for="client.firstName"></span>
+    </div>
+    <div class="form-group">
+        <label for="lastName">Last name</label>
+        <input type="text" class="form-control" id="lastNameControl" asp-for="@Model.client.lastName">
+        <span class="text-danger" asp-validation-for="client.lastName"></span>
+    </div>
+    <div class="form-group">
+        <label for="age">Age</label>
+        <input type="number" class="form-control" id="ageControl" asp-for="@Model.client.age">
+        <span class="text-danger" asp-validation-for="client.age"></span>
+    </div>
+    <input type="hidden" asp-for="@Model.client.Id"/>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

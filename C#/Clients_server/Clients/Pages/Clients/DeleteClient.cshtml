@@ -1,0 +1,17 @@
+﻿@page
+@model DeleteClientModel
+@{
+    ViewData["Title"] = "DeleteClient";
+}
+
+<h1>Are you sure to delete this client?</h1>
+
+<h1>@Model.client.firstName @Model.client.lastName</h1>
+
+<form method="post">
+    <button class="btn btn-outline-danger" type="submit">Yes!</button>
+    <a class="btn btn-outline-dark" asp-page="./List">NO!</a>
+</form>
+
+
+
